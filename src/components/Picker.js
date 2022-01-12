@@ -11,7 +11,6 @@ import React, {
 import {
     View,
     SafeAreaView,
-    TouchableOpacity,
     Text,
     Image,
     FlatList,
@@ -23,6 +22,7 @@ import {
     BackHandler,
     Platform,
     StyleSheet,
+    Pressable
 } from 'react-native';
 
 const { height: WINDOW_HEIGHT } = Dimensions.get('window');
@@ -1496,9 +1496,9 @@ function Picker({
             Component = <Image source={ICON.CLOSE} style={_closeIconStyle} />;
 
         return (
-            <TouchableOpacity style={_closeIconContainerStyle} onPress={onPressClose}>
+            <Pressable style={_closeIconContainerStyle} onPress={onPressClose}>
                 {Component}
-            </TouchableOpacity>
+            </Pressable>
         );
     }, [listMode, CloseIconComponent, _closeIconStyle, _closeIconContainerStyle, onPressClose, ICON]);
 
@@ -1734,10 +1734,10 @@ function Picker({
 
     return (
         <View style={_containerStyle} {...containerProps}>
-            <TouchableOpacity style={_style} onPress={__onPress} onLayout={__onLayout} {...props} ref={onRef} pointerEvents={pointerEvents} disabled={disabled} testID={testID}>
+            <Pressable style={_style} onPress={__onPress} onLayout={__onLayout} {...props} ref={onRef} pointerEvents={pointerEvents} disabled={disabled} testID={testID}>
                 {_BodyComponent}
                 {_ArrowComponent}
-            </TouchableOpacity>
+            </Pressable>
             {DropDownBodyComponent}
         </View>
     );
